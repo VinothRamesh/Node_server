@@ -2,7 +2,7 @@ const express= require('express');
 const fs=require('fs');
 
 var app=express();
-
+var port=process.env.port || 3000;
 app.set('view engine','hbs');
 app.use((req,res,next)=>{
   var now=new Date().toString();
@@ -30,6 +30,6 @@ res.render('about.hbs',{
   HeroineName:'Tammanah'
 });
 });
-app.listen(3000,()=>{
-  console.log('connection established');
+app.listen(port,()=>{
+  console.log(`connection established for ${port}`);
 });
